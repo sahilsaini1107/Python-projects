@@ -1,0 +1,17 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "> mongoDB, express, React, nodejs * mongodb is a **NOSQL database** which stores documents in **collection** instaed of **records and tables** as in **SQL database**. * nodejs is a **javascrpit engine** originally built for browser, now can work without a browser and having some extra **APIs** and allows us to run the jasvascrit outside of the browser. * express a framework for the **nodejs** which helps to ease the process. * react is a **js library** to build fast and scalable user interface. it is a **view part** in mern stack.",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "mongoose": "^6.4.0",
+    "nodemon": "^2.0.16"
+  }
+}

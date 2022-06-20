@@ -24,4 +24,8 @@ htmlcontent5 = r5.content
 
 
 soup = BeautifulSoup(htmlcontent1, 'html.parser')
-print(soup.prettify())
+# print(soup.find_all('div', class_="jsx-3209139589"))
+soup.select("head > title")
+"p > a:nth-of-type(2)"
+# print(soup.select("div > div:nth-of-type(8)").text())
+bestdiv = soup.select("div > div:nth-of-type(8)")
