@@ -1,10 +1,17 @@
 const express = require('express');
-const book = require('../model/book');
+const book = require('../model/Book');
 const router = express.Router();
-const product = require("../model/book")
 const booksController = require("../controllers/book_controller");
 
+
 router.get("/", booksController.getAllBooks);
+router.post("/", booksController.addBook);
+router.get("/:id", booksController.getById);
+router.put("/:id", booksController.updateBook);
+router.delete("/:id", booksController.deleteBook);
+
+
+
 
 //************* this is also a way but bad design**************
 

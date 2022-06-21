@@ -9,7 +9,7 @@ const app = express();
 // app.use('/', (req,res,next) => {
 //     res.send("Welcome page");
 // });
-
+app.use(express.json());
 app.use("/books", router);
 
 mongoose
@@ -19,4 +19,4 @@ mongoose
         app.listen(5000);
     }).catch((err)=>console.log(err));
 
-// 2bdypDTxc9kKNzwO
+// mongodb key    2bdypDTxc9kKNzwO
