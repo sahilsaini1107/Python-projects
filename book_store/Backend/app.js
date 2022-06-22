@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const router = require("./routes/book_routes");
-
+const cors = require("cors");
 const app = express();
 
 // middleware
@@ -11,6 +11,7 @@ const app = express();
 // });
 app.use(express.json());
 app.use("/books", router);
+app.use(cors());
 
 mongoose
     .connect("mongodb+srv://admin:2bdypDTxc9kKNzwO@cluster0.4hmwqif.mongodb.net/bookstore?retryWrites=true&w=majority")
