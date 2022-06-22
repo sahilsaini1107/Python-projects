@@ -5,13 +5,13 @@ const cors = require("cors");
 const app = express();
 
 // middleware
-
+app.use(cors());
 // app.use('/', (req,res,next) => {
 //     res.send("Welcome page");
 // });
 app.use(express.json());
 app.use("/books", router);
-app.use(cors());
+
 
 mongoose
     .connect("mongodb+srv://admin:2bdypDTxc9kKNzwO@cluster0.4hmwqif.mongodb.net/bookstore?retryWrites=true&w=majority")
