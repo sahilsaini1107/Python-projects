@@ -5,7 +5,7 @@ import Home from "./components/Home";
 import AddBook from "./components/AddBook";
 import About from "./components/About";
 import Books from "./components/book/Books";
-
+import BookDetail from "./components/book/BookDetail";
 
 
 function App() {
@@ -20,6 +20,7 @@ function App() {
         <Route path="/add" element={ <AddBook /> } />
         <Route path="/about" element={ <About /> } />
         <Route path="/books" element={ <Books /> } />
+        <Route path="/books/:id" element={ <BookDetail /> } />
       </Routes>
     </main>
   </React.Fragment>

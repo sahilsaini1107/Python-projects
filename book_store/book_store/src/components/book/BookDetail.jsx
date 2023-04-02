@@ -31,7 +31,7 @@ import {
           name: String(inputs.name),
           author: String(inputs.author),
           description: String(inputs.description),
-          price: Number(inputs.price),
+          pages: Number(inputs.pages),
           image: String(inputs.image),
           available: Boolean(checked),
         })
@@ -90,15 +90,15 @@ import {
                 variant="outlined"
                 name="description"
               />
-              <FormLabel>Price</FormLabel>
+              <FormLabel>Pages</FormLabel>
               <TextField
-                value={inputs.price}
+                value={inputs.pages}
                 onChange={handleChange}
                 type="number"
                 margin="normal"
                 fullWidth
                 variant="outlined"
-                name="price"
+                name="pages"
               />
               <FormLabel>Image</FormLabel>
               <TextField

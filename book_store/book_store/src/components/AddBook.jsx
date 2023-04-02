@@ -4,7 +4,6 @@ import {
     FormControlLabel,
     FormLabel,
     TextField,
-    Typography,
   } from "@mui/material";
   import { Box } from "@mui/system";
   import axios from "axios";
@@ -15,10 +14,9 @@ import {
     const history = useNavigate();
     const [inputs, setInputs] = useState({
       name: "",
-      description: "",
-      price: "",
       author: "",
-  
+      description: "",
+      pages: "",
       image: "",
     });
     const [checked, setChecked] = useState(false);
@@ -27,20 +25,18 @@ import {
         ...prevState,
         [e.target.name]: e.target.value,
       }));
-      // console.log(e.target.name, "Value", e.target.value);
+      console.log(e.target.name, "Value", e.target.value);
     };
   
     const sendRequest = async () => {
-      await axios
-        .post("http://localhost:5000/books", {
+      await axios.post("http://localhost:5000/books", {
           name: String(inputs.name),
           author: String(inputs.author),
           description: String(inputs.description),
-          price: Number(inputs.price),
+          pages: Number(inputs.pages),
+          status: Boolean(checked),
           image: String(inputs.image),
-          available: Boolean(checked),
-        })
-        .then((res) => res.data);
+      }).then((res) => res.data);
     };
   
     const handleSubmit = (e) => {
@@ -55,12 +51,12 @@ import {
           display="flex"
           flexDirection="column"
           justifyContent={"center"}
-          maxWidth={700}
+          maxWidth={500}
           alignContent={"center"}
           alignSelf="center"
           marginLeft={"auto"}
           marginRight="auto"
-          marginTop={10}
+          marginTop={5}
         >
           <FormLabel>Name</FormLabel>
           <TextField
@@ -89,15 +85,15 @@ import {
             variant="outlined"
             name="description"
           />
-          <FormLabel>Price</FormLabel>
+          <FormLabel>Pages</FormLabel>
           <TextField
-            value={inputs.price}
+            value={inputs.pages}
             onChange={handleChange}
             type="number"
             margin="normal"
             fullWidth
             variant="outlined"
-            name="price"
+            name="pages"
           />
           <FormLabel>Image</FormLabel>
           <TextField
@@ -112,11 +108,11 @@ import {
             control={
               <Checkbox checked={checked} onChange={() => setChecked(!checked)} />
             }
-            label="Available"
+            label="Status"
           />
   
           <Button variant="contained" type="submit">
-            Add Book
+            Add Project
           </Button>
         </Box>
       </form>

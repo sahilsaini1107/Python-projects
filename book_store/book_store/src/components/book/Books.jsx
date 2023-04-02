@@ -3,7 +3,7 @@ import "./Book.css";
 import axios from "axios";
 import Book from "./Book";
 
-const URL = "https://5000-sahilsaini1-pythonproje-sse04brltkt.ws-us47.gitpod.io/books";
+const URL = "http://localhost:5000/books";
 
 const fetchHandler = async () => {
   return await axios.get(URL).then((res) => res.data);
@@ -15,8 +15,8 @@ const Books = () => {
 
   useEffect(() => {
     fetchHandler().then((data) => setBooks(data.books)).catch(err => {
-   console.log(err);
-});
+      console.log(err);
+    });
   }, []);
   console.log(books);
   return (

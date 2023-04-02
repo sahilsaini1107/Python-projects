@@ -5,13 +5,14 @@ import "./Book.css";
 
 const Book = (props) => {
   const history = useNavigate();
-  const { _id, name, author, description, pages,status ,image } = props.book;
+  const { _id, name, author, description, pages,image } = props.book;
   const deleteHandler = async () => {
     await axios
       .delete(`http://localhost:5000/books/${_id}`)
       .then((res) => res.data)
       .then(() => history("/"))
-      .then(() => history("/books"));
+      // .then(() => history("/books"))
+      .catch((err)=> console.log(err));
   };
 
   return (
@@ -21,7 +22,6 @@ const Book = (props) => {
       <h3>{name}</h3>
       <p>{description}</p>
       <h3>Rs {pages}</h3>
-      <h3>Rs {status}</h3>
       <Button LinkComponent={Link} to={`/books/${_id}`} sx={{ mt: "auto" }}>
         Update
       </Button>
